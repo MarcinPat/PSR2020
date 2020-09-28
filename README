@@ -1,0 +1,13 @@
+AUTOR: MARCIN P.
+
+SYSTEM polega na wysłaniu pliku jpg ze swoją facjatą, gdzie zostanie poddany  analizie rekognition AgeRange
+
+czyli odczytamy wiek ze zdjęcia (AgeRange - High, AgeRange - Low, i suma tych lat podzielona przez dwa)
+
+Na podany mail (podany jako nazwa pliku) zostanie wysłana wiadomość  LICZBY Z TWARZY z tymi odczytanymi liczbami
+
+wywołanie:
+
+./send.sh  https:/.........endopoint ./nazwaplikujakomail
+
+PRZETESTOWANE NA GMAILu.
