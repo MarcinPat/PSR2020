@@ -31,7 +31,7 @@ def detect_faces(photo, bucket, nazwa_pliku_jako_email):
     
 
     ses.send_email(
-        Source='marcin.patalas.123@gmail.com',
+        Source='PROSZE_WPISAC_SWOJ_MAIL_Z_SMTP',
         Destination={
             'ToAddresses': [
                 nazwa_pliku_jako_email,
