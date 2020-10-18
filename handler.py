@@ -17,16 +17,21 @@ def detect_faces(photo, bucket, nazwa_pliku_jako_email):
     rekognition_response = json.dumps(response, indent=4)
 
     face_details = json.loads(rekognition_response)
-    AgeRangeLow = str(face_details['FaceDetails'][0]['AgeRange']['Low'])
-    AgeRangeHigh = str(face_details['FaceDetails'][0]['AgeRange']['High'])
-    AgeRangeMedium = (int(AgeRangeLow) + int(AgeRangeHigh))/2
+
+    try:
+        AgeRangeLow = str(face_details['FaceDetails'][0]['AgeRange']['Low'])
+        AgeRangeHigh = str(face_details['FaceDetails'][0]['AgeRange']['High'])
+        AgeRangeMedium = (int(AgeRangeLow) + int(AgeRangeHigh))/2
+        body = "Wyczytaliśmy takie liczby : " + str(AgeRangeLow) + str(", ") + str(AgeRangeMedium) + str(" ,") + str(AgeRangeHigh)
+    except IndexError:
+        body = "ERROR - Prawdopodobnie wyslales zdjecie swojego penisa"
 
     ses = boto3.client('ses')
 
-    body = "Wyczytaliśmy takie liczby : " + str(AgeRangeLow) + str(", ") + str(AgeRangeMedium) + str(" ,") + str(AgeRangeHigh)
+    
 
     ses.send_email(
-        Source='PROSZE_WPISAC_SWOJ_MAIL_Z_SMTP',
+        Source='marcin.patalas.123@gmail.com',
         Destination={
             'ToAddresses': [
                 nazwa_pliku_jako_email,
@@ -34,7 +39,7 @@ def detect_faces(photo, bucket, nazwa_pliku_jako_email):
         },
         Message={
             'Subject': {
-                'Data': 'SESDEMO - LICZBY Z TWARZY',
+                'Data': 'SESDEMO TWARZOLICZBY',
                 'Charset': 'UTF-8'
             },
             'Body': {
@@ -48,7 +53,7 @@ def detect_faces(photo, bucket, nazwa_pliku_jako_email):
     
     return len(response['FaceDetails'])
 
-
+ 
 
 
 
@@ -81,8 +86,8 @@ def hello(event, context):
     photo=uid
     bucket=os.getenv("Bucket")
     #face_count=detect_faces(photo, bucket)
-    face_count=detect_faces(photo, bucket, nazwa_pliku_jako_email)
-    print("Faces detected: " + str(face_count))
+    detect_faces(photo, bucket, nazwa_pliku_jako_email)
+    #print("Faces detected: " + str(face_count))
 
 
 
