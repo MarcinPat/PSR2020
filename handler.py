@@ -14,13 +14,9 @@ def detect_faces(photo, bucket, nazwa_pliku_jako_email):
     
     print('Detected faces for ' + photo)    
 
-    rekognition_response = json.dumps(response, indent=4)
-
-    face_details = json.loads(rekognition_response)
-
     try:
-        AgeRangeLow = str(face_details['FaceDetails'][0]['AgeRange']['Low'])
-        AgeRangeHigh = str(face_details['FaceDetails'][0]['AgeRange']['High'])
+        AgeRangeLow = str(response['FaceDetails'][0]['AgeRange']['Low'])
+        AgeRangeHigh = str(response['FaceDetails'][0]['AgeRange']['High'])
         AgeRangeMedium = (int(AgeRangeLow) + int(AgeRangeHigh))/2
         body = "Wyczytaliśmy takie liczby : " + str(AgeRangeLow) + str(", ") + str(AgeRangeMedium) + str(" ,") + str(AgeRangeHigh)
     except IndexError:
