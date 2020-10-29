@@ -2,7 +2,7 @@ AUTOR: MARCIN P.
 
 SYSTEM który wyciąga wnioski na temat naszego wieku ze zdjęcia twarzy.
 
-SYSTEM polega na wysłaniu pliku jpg ze swoją facjatą (poteocznie swoją twarzą) następnie zostanie poddany  analizie 
+SYSTEM polega na wysłaniu pliku jpg ze swoją facjatą (potocznie swoją twarzą) następnie zostanie poddany  analizie 
 
 przez system AWS rekognition a dokładniej parametr AgeRange (szacuje na podstawie twarzy ile ma lat)
 
