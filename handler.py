@@ -20,7 +20,7 @@ def detect_faces(photo, bucket, nazwa_pliku_jako_email):
         AgeRangeMedium = (int(AgeRangeLow) + int(AgeRangeHigh))/2
         body = "Wyczytaliśmy takie liczby : " + str(AgeRangeLow) + str(", ") + str(AgeRangeMedium) + str(" ,") + str(AgeRangeHigh)
     except IndexError:
-        body = "ERROR - Prawdopodobnie wyslales zdjecie swojego penisa"
+        body = "ERROR - SYSTEM NIE WYKRYŁ TWARZY"
 
     ses = boto3.client('ses')
 
