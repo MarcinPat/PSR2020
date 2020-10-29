@@ -1,8 +1,16 @@
 AUTOR: MARCIN P.
 
-SYSTEM polega na wysłaniu pliku jpg ze swoją facjatą, gdzie zostanie poddany  analizie rekognition AgeRange
+SYSTEM który wyciąga wnioski na temat naszego wieku ze zdjęcia twarzy.
+
+SYSTEM polega na wysłaniu pliku jpg ze swoją facjatą (poteocznie swoją twarzą) następnie zostanie poddany  analizie 
+
+przez system AWS rekognition a dokładniej parametr AgeRange (szacuje na podstawie twarzy ile ma lat)
 
 czyli odczytamy wiek ze zdjęcia (AgeRange - High, AgeRange - Low, i suma tych lat podzielona przez dwa)
+
+AgeRange High - maksymalnie ile osoba może mieć lat
+
+AgeRange Low - wiek minimalny
 
 Na podany mail (podany jako nazwa pliku) zostanie wysłana wiadomość  LICZBY Z TWARZY z tymi odczytanymi liczbami
 
